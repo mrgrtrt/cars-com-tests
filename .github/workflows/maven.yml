@@ -19,8 +19,10 @@ jobs:
         java-version: '17'
         distribution: 'zulu'
         cache: maven
-    - name: Build with Maven
-      run: mvn clean test
+    - name: Install Playwright
+      run: mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install --with-deps"
+    - name: Run tests
+      run: mvn test
       
     - name: Get Allure history
       uses: actions/checkout@v2
