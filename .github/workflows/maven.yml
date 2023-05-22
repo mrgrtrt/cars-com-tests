@@ -7,8 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  build:
-
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,12 +16,13 @@ jobs:
       uses: actions/setup-java@v3
       with:
         java-version: '17'
-        distribution: 'zulu'
-        cache: maven
+        distribution: 'temurin'
+    - name: Build & Install
+      run: mvn -B install -D skipTests --no-transfer-progress
     - name: Install Playwright
       run: mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install --with-deps"
     - name: Run tests
-      run: mvn test
+      run: xvfb-run mvn test
       
     - name: Get Allure history
       uses: actions/checkout@v2
