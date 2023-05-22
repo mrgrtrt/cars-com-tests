@@ -8,7 +8,7 @@ public class CarPage extends BasePage {
     private ContactSellerForm contactSeller;
 
     public CarPage(Page page) {
-        this.page = page;
+        super(page);
         contactSeller = new ContactSellerForm(page);
     }
 

@@ -10,7 +10,7 @@ public class HomePage extends BasePage {
     private final SearchForm searchForm;
 
     public HomePage(Page page) {
-        this.page = page;
+        super(page);
 //        checkElementVisible(HOMEPAGE_BANNER);
         this.searchForm = new SearchForm(page);
     }

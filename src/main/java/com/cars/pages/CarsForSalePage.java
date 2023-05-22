@@ -17,7 +17,7 @@ public class CarsForSalePage extends BasePage {
     private final BasicFilterSection filterSection;
 
     public CarsForSalePage(Page page, Optional<CarForSearch> optionalCar) {
-        this.page = page;
+        super(page);
         CarForSearch car = optionalCar.orElse(null);
         assertThat(page.locator(String.format(HEADER, constructHeader(car)))).isVisible();
         this.filterSection = new BasicFilterSection(this.page);
