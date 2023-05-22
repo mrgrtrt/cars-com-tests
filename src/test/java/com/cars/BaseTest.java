@@ -8,6 +8,7 @@ import org.testng.annotations.BeforeSuite;
 import static com.cars.utils.ConfigUtils.ConfigKeys.TIMEOUT;
 import static com.cars.utils.ConfigUtils.ConfigKeys.URL;
 import static com.cars.utils.ConfigUtils.DEFAULTS;
+import static org.testng.Assert.assertTrue;
 
 public class BaseTest {
 
@@ -16,8 +17,11 @@ public class BaseTest {
 
     @BeforeSuite
     public void initBrowser() {
-        this.browser = new PlaywrightContext().getChromeBrowser();
-        this.page = browser.newPage();
+        browser = new PlaywrightContext().getChromeBrowser();
+        page = browser.newPage();
+
+        assertTrue(browser.isConnected());
+
         page.setDefaultTimeout(Double.parseDouble(DEFAULTS.get(TIMEOUT)));
         page.navigate(DEFAULTS.get(URL));
     }
