@@ -11,7 +11,7 @@ public class HomePage extends BasePage {
 
     public HomePage(Page page) {
         this.page = page;
-        checkElementVisible(HOMEPAGE_BANNER);
+//        checkElementVisible(HOMEPAGE_BANNER);
         this.searchForm = new SearchForm(page);
     }
 

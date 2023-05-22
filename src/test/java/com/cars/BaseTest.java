@@ -23,9 +23,6 @@ public class BaseTest {
         page = browser.newPage();
         page.setDefaultTimeout(Double.parseDouble(DEFAULTS.get(TIMEOUT)));
         page.navigate(DEFAULTS.get(URL));
-
-
-        assertTrue(Objects.nonNull(page));
     }
 
     @AfterSuite

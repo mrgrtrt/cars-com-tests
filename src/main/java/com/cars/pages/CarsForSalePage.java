@@ -7,6 +7,8 @@ import io.qameta.allure.Step;
 
 import java.util.Optional;
 
+import static com.microsoft.playwright.assertions.PlaywrightAssertions.assertThat;
+
 public class CarsForSalePage extends BasePage {
 
     private static final String HEADER = "//h1[text()='%s']";
@@ -17,7 +19,7 @@ public class CarsForSalePage extends BasePage {
     public CarsForSalePage(Page page, Optional<CarForSearch> optionalCar) {
         this.page = page;
         CarForSearch car = optionalCar.orElse(null);
-        checkElementVisible(String.format(HEADER, constructHeader(car)));
+        assertThat(page.locator(String.format(HEADER, constructHeader(car)))).isVisible();
         this.filterSection = new BasicFilterSection(this.page);
     }
 
