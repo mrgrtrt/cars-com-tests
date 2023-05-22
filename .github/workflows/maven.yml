@@ -19,10 +19,8 @@ jobs:
       with:
         java-version: '17'
         distribution: 'temurin'
-    - name: Build & Install
-      run: mvn -B install -D skipTests --no-transfer-progress
     - name: Run tests
-      run: xvfb-run mvn test
+      run: xvfb-run mvn test --file pom.xml
       
     - name: Get Allure history
       uses: actions/checkout@v2
