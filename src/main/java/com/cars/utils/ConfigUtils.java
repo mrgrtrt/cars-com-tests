@@ -26,5 +26,6 @@ public class ConfigUtils {
     public static class ConfigKeys {
         public static final String URL = "amazon.url";
         public static final String HEADLESS = "headless.mode";
+        public static final String TIMEOUT = "timeout";
     }
 }

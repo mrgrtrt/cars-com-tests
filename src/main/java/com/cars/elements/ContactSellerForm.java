@@ -22,7 +22,8 @@ public class ContactSellerForm {
 
     @Step
     public ContactSellerForm fillInput(String label, String value) {
-        page.getByLabel(label).fill(value);
+        String selector = String.format("//div[@id='lead-form-embedded']//label[text()='%s']", label);
+        page.fill(selector, value);
         return this;
     }
 }

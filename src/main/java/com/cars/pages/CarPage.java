@@ -9,6 +9,7 @@ public class CarPage extends BasePage {
 
     public CarPage(Page page) {
         this.page = page;
+        contactSeller = new ContactSellerForm(page);
     }
 
     public ContactSellerForm getContactSeller() {

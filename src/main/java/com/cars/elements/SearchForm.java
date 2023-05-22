@@ -44,12 +44,8 @@ public class SearchForm {
     @Step
     public CarsForSalePage clickSearchButton(CarForSearch car) {
         page.locator(SEARCH_BUTTON).click();
-        page.waitForLoadState(LoadState.NETWORKIDLE);
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
+        page.waitForLoadState(LoadState.LOAD);
+
         return new CarsForSalePage(page, Optional.of(car));
     }
 }

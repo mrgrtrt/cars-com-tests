@@ -10,7 +10,7 @@ import static java.util.stream.Collectors.toList;
 
 public class BasicFilterSection {
 
-    private final static String SELECT = "//div[@id='search-basics-area']//label[text()='%s']/parent::div/select";
+    private final static String SELECT = "//div[@id='search-basics-area']//label[text()='%s']/parent::div";
     private final static String ACTIVE_TAG = "div#active_filter_tags label";
     private final Page page;
 
@@ -20,10 +20,18 @@ public class BasicFilterSection {
 
     @Step
     public BasicFilterSection selectDropdown(String label, String value) {
-        page.selectOption("//div[@id='search-basics-area']//select[@id='stock-type-select']", value);
-        page.selectOption(String.format(SELECT, label), value);
-//        page.getByLabel(label).selectOption(value);
-        page.waitForLoadState(LoadState.DOMCONTENTLOADED);
+        //this dropdown in chromium has issues
+        page.click(String.format(SELECT, label));
+        page.click(String.format(SELECT, label));
+
+        page.selectOption("#stock-type-select", value);
+        page.waitForLoadState(LoadState.LOAD);
+        page.waitForLoadState();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         return this;
     }
 

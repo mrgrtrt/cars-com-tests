@@ -2,7 +2,6 @@ package com.cars.pages;
 
 import com.cars.elements.SearchForm;
 import com.microsoft.playwright.Page;
-import io.qameta.allure.Step;
 
 public class HomePage extends BasePage {
 
@@ -16,7 +15,6 @@ public class HomePage extends BasePage {
         this.searchForm = new SearchForm(page);
     }
 
-    @Step
     public SearchForm getSearchForm() {
         return searchForm;
     }
