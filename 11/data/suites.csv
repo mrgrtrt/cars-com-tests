@@ -1,0 +1,2 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"broken","Mon May 22 10:35:30 GMT 2023","Mon May 22 10:35:32 GMT 2023","1490","Surefire suite","Surefire test","com.cars.CarsComTest","com.cars.CarsComTest","verifySearchCarCard","Search the Car",""
