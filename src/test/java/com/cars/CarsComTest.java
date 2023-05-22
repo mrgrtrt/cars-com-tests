@@ -30,6 +30,7 @@ public class CarsComTest {
         page = browser.newPage();
         page.setDefaultTimeout(Double.parseDouble(DEFAULTS.get(TIMEOUT)));
         page.navigate(DEFAULTS.get(URL));
+        page.waitForURL(DEFAULTS.get(URL));
     }
 
     @AfterSuite
