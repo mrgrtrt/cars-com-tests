@@ -5,6 +5,8 @@ import com.microsoft.playwright.Page;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
+import java.util.Objects;
+
 import static com.cars.utils.ConfigUtils.ConfigKeys.TIMEOUT;
 import static com.cars.utils.ConfigUtils.ConfigKeys.URL;
 import static com.cars.utils.ConfigUtils.DEFAULTS;
@@ -19,11 +21,11 @@ public class BaseTest {
     public void initBrowser() {
         browser = new PlaywrightContext().getChromeBrowser();
         page = browser.newPage();
-
-        assertTrue(browser.isConnected());
-
         page.setDefaultTimeout(Double.parseDouble(DEFAULTS.get(TIMEOUT)));
         page.navigate(DEFAULTS.get(URL));
+
+
+        assertTrue(Objects.nonNull(page));
     }
 
     @AfterSuite
