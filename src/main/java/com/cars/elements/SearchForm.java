@@ -13,7 +13,7 @@ public class SearchForm {
     private static final String SEARCH_BUTTON = "div#by-make-tab button";
     private static final String SELECT = "//div[@id='by-make-tab']//select[@data-activitykey='%s']";
     private static final String INPUT = "//div[@id='by-make-tab']//input[@data-activitykey='%s']";
-    private final Page page;
+    private Page page;
 
     public SearchForm(Page page) {
         this.page = page;
